@@ -1,0 +1,53 @@
+﻿<Window x:Class="GOST.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GOST"
+        mc:Ignorable="d"
+        Title="ГОСТ28147-89" Height="469" Width="998" MinHeight="317" MinWidth="427">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#FF2980B9"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3498db"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <Button Content="Зашифровать" Margin="18,0,0,26" Height="72" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="178" Click="Crypts" FontSize="16" Foreground="White"/>
+        <Button Content="Дешифровать" Margin="217,0,0,26" VerticalAlignment="Bottom" Height="72" Click="DeCrypts" FontSize="16" Foreground="White" HorizontalAlignment="Left" Width="177"/>
+        <TextBox Margin="18,40,0,0" TextWrapping="Wrap" Text="14285737492859499282384283429349" VerticalAlignment="Top" FontSize="16" Name="Key_Text" MaxLength="32" HorizontalAlignment="Left" Width="376"/>
+        <Label Content="Ключ:" HorizontalAlignment="Left" Margin="8,9,0,0" VerticalAlignment="Top" FontSize="16"/>
+
+        <Button Content="Сгенерировать" Margin="18,70,0,0" Height="56" VerticalAlignment="Top" Click="Gen" FontSize="16" Foreground="White" HorizontalAlignment="Left" Width="376"/>
+        <TabControl Margin="399,0,0,0">
+            <TabItem Header="Исходный текст">
+                <Grid Background="white">
+                    <TextBox TextWrapping="Wrap" Text="Текст" FontSize="16" x:Name="In_Text" Margin="1,1,1,1" VerticalScrollBarVisibility="Auto"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Шифр">
+                <Grid Background="white">
+                    <TextBox TextWrapping="Wrap" Text="Шифр" FontSize="16" Name="Out_Text" VerticalScrollBarVisibility="Auto" Margin="1,1,1,1"/>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <Button Content="Открыть файл" Margin="18,145,0,0" Height="56" VerticalAlignment="Top" Click="OpenFile" FontSize="16" Foreground="White" HorizontalAlignment="Left" Width="376"/>
+
+    </Grid>
+</Window>
